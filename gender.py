@@ -3,7 +3,7 @@ import csv
 gender_is_female_and_like_rock_music = []
 
 # Read csv
-with open('dataset.csv', 'r') as dataset_csv:
+with open('datasets/gender.csv', 'r') as dataset_csv:
     csv_dict_reader = csv.DictReader(dataset_csv)
 
     for row in csv_dict_reader:
@@ -20,7 +20,7 @@ with open('dataset.csv', 'r') as dataset_csv:
 
 # Write new csv file
 with open(
-        'gender_is_female_and_like_rock_music.csv',
+        'csv/gender.csv',
         'w',
         newline=''
 ) as gender_is_female_and_like_rock_music_csv:
