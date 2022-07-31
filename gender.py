@@ -1,6 +1,6 @@
 import csv
 
-gender_is_female_and_like_rock_music = []
+temp_csv = []
 
 # Read csv
 with open('datasets/gender.csv', 'r') as dataset_csv:
@@ -13,7 +13,7 @@ with open('datasets/gender.csv', 'r') as dataset_csv:
         music = row['Favorite Music Genre']
         if gender == 'F' and music == 'Rock':
             # Parse csv
-            gender_is_female_and_like_rock_music.append({
+            temp_csv.append({
                 'Gender': row['Gender'],
                 'Favorite Music Genre': row['Favorite Music Genre']
             })
@@ -23,10 +23,10 @@ with open(
         'csv/gender.csv',
         'w',
         newline=''
-) as gender_is_female_and_like_rock_music_csv:
+) as csv_write:
     headers = ['Favorite Music Genre', 'Gender']
-    csv_dict_writer = csv.DictWriter(gender_is_female_and_like_rock_music_csv, fieldnames=headers)
+    csv_dict_writer = csv.DictWriter(csv_write, fieldnames=headers)
     csv_dict_writer.writeheader()
 
-    for gender in gender_is_female_and_like_rock_music:
+    for gender in temp_csv:
         csv_dict_writer.writerow(gender)
